@@ -1,0 +1,21 @@
+{{- if .IsHome }}
+<header class="fadeInLeft animated" />
+{{- else }}
+<header>
+    {{- end }}
+    {{- $page := . }}
+    <div>
+        <a href="{{ $.Site.BaseURL }}" id="logo" title="{{ $.Site.Title }}"
+            style="background-image: url(/images/logo.png);"></a>
+    </div>
+
+    <nav id="main-navigation">
+        {{- range $.Site.Menus.main }}
+        {{- if $page.IsMenuCurrent .Menu . }}
+        <a href="{{ .URL }}" title="{{ .Name }}" class="current" onclick="javascript: void(0)">{{ .Name }}</a>
+        {{- else }}
+        <a href="{{ .URL }}" title="{{ .Name }}">{{ .Name }}</a>
+        {{- end }}
+        {{- end }}
+    </nav>
+</header>

@@ -1,0 +1,29 @@
+baseURL = 'https://waldoweng.github.io/'
+languageCode = 'en-us'
+title = 'Ρ Αἴας!'
+theme = ['brume-hugo']
+[params]
+    author = 'Zhao Weng'
+    description = 'Ρ Αἴας!'
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    pre = 'home'
+    pageRef = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Posts'
+    pre = 'pen-tool'
+    pageRef = '/posts'
+    weight = 2
+  [[menu.main]]
+    name = 'Tags'
+    pre = 'tag'
+    pageRef = '/tags'
+    weight = 3
+  [[menu.main]]
+    name = 'About'
+    pre = 'about'
+    pageRef = '/about'
+    weight = 4
+sectionPagesMenu = 'main'

@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{if ne .Data.Plural "tags"}}
+<section class="archive">
+    {{ range .Pages.GroupByPublishDate "2006" }}
+    <div class="archive-item fadeInDown animated">
+        <h2>{{ .Key }}</h2>
+        <div>
+            {{- range .Pages }}
+            <article>
+                <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <div class="post-date">
+                    {{ $dateTime := .PublishDate.Format "2006-01" }}
+                    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2" }}
+                    <time class="published" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+                </div>
+            </article>
+            {{end}}
+        </div>
+    </div>
+    {{ end }}
+</section>
+{{ else }}
+<section class="archive">
+    {{ range .Pages.ByTitle }}
+    <div class="archive-item fadeInDown animated">
+        <h2>{{ .Title }}</h2>
+        <div>
+            {{- range .Data.Pages.GroupByPublishDate "2006-01-02"}}
+            {{- range .Pages }}
+            <article>
+                <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <div class="post-date">
+                    {{ $dateTime := .PublishDate.Format "2006-01" }}
+                    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2" }}
+                    <time class="published" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+                </div>
+            </article>
+            {{end}}
+            {{end}}
+        </div>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
+{{ end }}

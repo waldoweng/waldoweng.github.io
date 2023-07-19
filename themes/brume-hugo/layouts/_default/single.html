@@ -1,0 +1,10 @@
+{{- define "main" }}
+<article class="single row gutters">
+    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+    <i data-feather="calendar"></i>
+    <time class="published" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+    <h2>{{ .Title }}</h2>
+    {{- .Content }}
+</article>
+{{- end }}

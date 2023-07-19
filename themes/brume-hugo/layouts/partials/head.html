@@ -1,0 +1,41 @@
+<!-- meta information -->
+<meta charset="utf-8" />
+<!-- description -->
+{{ if .IsHome }}
+<meta name="description" content="{{ $.Site.Params.description }}" />
+{{ else }}
+<meta name="description" content="{{ .Description }}" />
+{{ end }}
+<meta name="author" content="{{ $.Site.Params.author }}" />
+
+<!-- enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- title -->
+{{ if .IsHome }}
+<title>{{ $.Site.Title }}</title>
+{{ else }}
+<title>{{ if .Title }}{{ .Title }} &middot; {{ end }}{{ $.Site.Title }}</title>
+{{ end }}
+
+<!-- icons -->
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link rel="icon" href="/images/favicon.ico" />
+
+<!-- stylesheets -->
+<link rel="stylesheet" href="/css/responsive.gs.12col.css" />
+<link rel="stylesheet" href="/css/animate.min.css" />
+<link rel="stylesheet" href="/css/syntax.css" />
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- google fonts -->
+<link rel="stylesheet"
+    href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic&subset=latin-ext" />
+
+<!-- font Awesome -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+
+<!-- feed links -->
+<link rel="alternate" href="feed.xml" type="application/rss+xml" title="{{ $.Site.Title }}" />
+
+<base target="_self">
